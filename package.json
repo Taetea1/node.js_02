@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Taetea1/node.js_02#readme",
   "description": "",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.21.2"
   }
 }
