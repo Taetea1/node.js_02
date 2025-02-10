@@ -10,70 +10,24 @@
 
 
 <body>
-  <h5>
+  <a href="/"><img src="/img/home.png" alt="홈" /></a>
+  <h3>
     <%= title %>
-  </h5>
+  </h3>
   <div class="info">
 
   </div>
-  <a href="/">홈으로 이동</a>
+
 </body>
 
 
 <!-- 동적파일 -->
-<script>
-
-  // 백엔드에 요청을 다시 보냄
-  fetch("/userinfo")
-    .then((response) => response.json())
-    .then((data) => {
-      // 가져온 데이터를 화면에 표시
-      const info = document.querySelector(".info");
-
-      info.innerHTML = `
-          <table>
-          <thead>
-            <tr>
-              <td>이메일</td>
-              <td>이름</td>
-              <td>나이</td>
-            </tr>
-          </thead>
-          <tbody class="tablebody">
-          </tbody>
-          </table>`;
-
-
-      // 뭔가를 추가하는 내용
-      let base_data = [];
-      base_data = JSON.parse(localStorage.getItem("userinfo")) || [];
-
-
-      const update_data = JSON.parse(JSON.stringify(data));
-      localStorage.setItem("userinfo", JSON.stringify(base_data));
-      console.log(JSON.parse(JSON.stringify(data)), "dddddddd");
-
-      const tablebody = document.querySelector(".tablebody");
-      base_data.map((x) => {
-        tablebody.innerHTML += `<tr>
-          <td>${x.email}</td>  
-          <td>${x.name}</td>  
-          <td>${x.age}</td>  
-        </tr>`;
-      });
-
-    })
-    .catch((e) => {
-      console.log("에러");
-    });
-
-</script>
 <!-- <script src="/JS/data.js"></script> -->
 <!-- <script>
   const userinfo = JSON.parse(`<%- JSON.stringify(userinfo) %>`);
 </script> -->
 
 <!-- 정적파일 -->
-<!-- <script src="/JS/test.js"></script> -->
+<script src="/JS/test.js"></script>
 
 </html>

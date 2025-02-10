@@ -13,3 +13,8 @@ table thead {
   background-color: #f5deb3;
   text-align: center;
 }
+
+img {
+  width: 40px;
+  cursor: pointer;
+}
