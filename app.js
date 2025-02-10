@@ -24,13 +24,18 @@ app.get("/", (req, res) => {
 
 app.get("/getForm", (req, res) => {
   // get 요청은 req.query에 담겨서 옴
-  console.log(req.query, "요청 왔니?");
+  console.log(req.query, "get요청 왔니?");
   // res.render("result", { title: "GET 요청 결과", userinfo: req.query });
-
+  data = req.query;
   res.render("search", {
-    title: "해당회원들",
+    title: "해당 회원들",
     userinfo: req.query,
   });
+});
+
+// 정적 파일에서 사용하기 위해 한번더 요청??
+app.get("/userinfo", (req, res) => {
+  res.json(data); //json으로 답아서 응답을 보냄
 });
 
 app.post("/postForm", (req, res) => {
@@ -38,7 +43,7 @@ app.post("/postForm", (req, res) => {
   data = req.body; //객체형식으로 들어감(json)
   console.log(req.body, "요청 왔니?");
   // res.render("result", { title: "POST 요청 결과", userinfo: req.body });
-  res.render("userlist", { title: "회원정보리스트", userinfo: data });
+  res.render("userlist", { title: "회원 정보 리스트", userinfo: data });
 });
 
 // 정적 파일에서 사용하기 위해 한번더 요청??
