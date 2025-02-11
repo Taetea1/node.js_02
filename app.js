@@ -1,3 +1,4 @@
+// practice1할때 app.js에서 사용한 코드
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -38,7 +39,7 @@ app.post("/postForm", (req, res) => {
   res.render("userlist", { title: "회원 정보 리스트" });
 });
 
-// 정적 파일에서 사용하기 위해 한번더 요청??
+// 정적 파일에서 사용하기 위해 한번더 요청(같은 데이터를 불러오는거면 같은거로 재사용해도 됨)
 app.get("/userinfo", (req, res) => {
   res.json(data); //json으로 답아서 응답을 보냄
 });
